@@ -1,5 +1,5 @@
 baseurl = "/"
 disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
-languageCode = "en-us"
-languageLang = "en"
+languageCode = "ja-JP"
+languageLang = "ja"
 title = "My new Victor-Hugo site"
