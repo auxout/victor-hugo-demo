@@ -1,4 +1,6 @@
 ---
+pages:
+- articles/my-first-post.md
 hide_body: false
 fields:
 - name: title
