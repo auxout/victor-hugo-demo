@@ -1,5 +1,6 @@
 ---
 pages:
+- pages/test3.md
 - pages/test.md
 - pages/test2.md
 hide_body: false
