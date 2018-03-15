@@ -1,4 +1,7 @@
 import gulp from "gulp";
+import sass from "gulp-sass";
+import sassGlob from "gulp-sass-glob";
+import packageImporter from "node-sass-package-importer";
 import {spawn} from "child_process";
 import hugoBin from "hugo-bin";
 import gutil from "gulp-util";
@@ -21,8 +24,8 @@ gulp.task("hugo", (cb) => buildSite(cb));
 gulp.task("hugo-preview", (cb) => buildSite(cb, hugoArgsPreview));
 
 // Build/production tasks
-gulp.task("build", ["css", "js", "fonts"], (cb) => buildSite(cb, [], "production"));
-gulp.task("build-preview", ["css", "js", "fonts"], (cb) => buildSite(cb, hugoArgsPreview, "production"));
+gulp.task("build", ["css", "sass", "js", "fonts"], (cb) => buildSite(cb, [], "production"));
+gulp.task("build-preview", ["css", "sass", "js", "fonts"], (cb) => buildSite(cb, hugoArgsPreview, "production"));
 
 // Compile CSS with PostCSS
 gulp.task("css", () => (
@@ -31,6 +34,16 @@ gulp.task("css", () => (
     .pipe(gulp.dest("./dist/css"))
     .pipe(browserSync.stream())
 ));
+
+// Compile SASS
+gulp.task('sass', function() {
+  return gulp.src('./src/css/*.scss')
+    .pipe(sassGlob())
+    .pipe(sass({importer: packageImporter({extensions: ['.scss', '.css']})}))
+    .pipe(postcss([cssnext()]))
+    .pipe(gulp.dest("./dist/css"))
+    .pipe(browserSync.stream())
+});
 
 // Compile Javascript
 gulp.task("js", (cb) => {
@@ -56,7 +69,7 @@ gulp.task('fonts', () => (
 ));
 
 // Development server with browsersync
-gulp.task("server", ["hugo", "css", "js", "fonts"], () => {
+gulp.task("server", ["hugo", "css", "sass", "js", "fonts"], () => {
   browserSync.init({
     server: {
       baseDir: "./dist"
@@ -64,6 +77,7 @@ gulp.task("server", ["hugo", "css", "js", "fonts"], () => {
   });
   gulp.watch("./src/js/**/*.js", ["js"]);
   gulp.watch("./src/css/**/*.css", ["css"]);
+  gulp.watch("./src/css/**/*.scss", ["sass"]);
   gulp.watch("./src/fonts/**/*", ["fonts"]);
   gulp.watch("./site/**/*", ["hugo"]);
 });
