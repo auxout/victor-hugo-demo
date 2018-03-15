@@ -16,3 +16,6 @@ fields:
 - type: datetime
   name: date
   label: Created At
+- type: boolean
+  label: Draft
+  name: draft
