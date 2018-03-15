@@ -1,5 +1,6 @@
 ---
 pages:
+- articles/333.md
 - articles/hoge.md
 hide_body: false
 fields:
