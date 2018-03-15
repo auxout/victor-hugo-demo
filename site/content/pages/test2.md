@@ -4,3 +4,6 @@ draft = true
 title = "test2"
 
 +++
+# this is test 2
+
+hogehoge
