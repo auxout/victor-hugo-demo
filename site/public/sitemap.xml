@@ -3,13 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/articles/hoge/</loc>
+    <lastmod>2018-03-15T14:15:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/articles/test2/</loc>
+    <lastmod>2018-03-15T14:02:21+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/articles/test/</loc>
     <lastmod>2018-03-15T14:00:59+00:00</lastmod>
   </url>
   
   <url>
+    <loc>/articles/fuga/</loc>
+    <lastmod>2018-03-15T14:35:13+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/articles/my-third-content/</loc>
-    <lastmod>2018-03-15T13:57:02+00:00</lastmod>
+    <lastmod>2018-03-15T13:57:02+09:00</lastmod>
   </url>
   
   <url>
@@ -24,13 +39,13 @@
   
   <url>
     <loc>/articles/</loc>
-    <lastmod>2018-03-15T14:00:59+00:00</lastmod>
+    <lastmod>2018-03-15T14:15:02+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-03-15T14:00:59+00:00</lastmod>
+    <lastmod>2018-03-15T14:15:02+00:00</lastmod>
     <priority>0</priority>
   </url>
   
