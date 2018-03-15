@@ -3,3 +3,4 @@ disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 languageCode = "ja-JP"
 languageLang = "ja"
 title = "My new Victor-Hugo site"
+metaDataFormat = "yaml"
