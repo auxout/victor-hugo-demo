@@ -1,5 +1,6 @@
 ---
 pages:
+- articles/my-second-content.md
 - articles/my-first-post.md
 hide_body: false
 fields:
