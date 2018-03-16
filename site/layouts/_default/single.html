@@ -1,14 +1,41 @@
 {{ partial "header.html" . }}
-<article class="post post-view">
+
+<article class="container">
   <header class="post-header">
     <h1 class="post-title">{{ .Title }}</h1>
     <p class="post-meta">
-      {{- if or .Params.author .Site.Params.author -}}
-      {{ .Params.author | default .Site.Params.author }} · {{ end }}
       {{- .Date.Format "2006.1.2" -}}
     </p>
   </header>
+
   <div class="post-content">{{ .Content }}</div>
+
+  <amp-twitter width="375"
+    height="472"
+    layout="responsive"
+    data-tweetid="638793490521001985">
+  </amp-twitter>
+
+  <amp-instagram data-shortcode="fBwFP"
+    width="320"
+    height="392"
+    layout="responsive">
+  </amp-instagram>
+
+  <amp-youtube data-videoid="WrpkFROqR0Q"
+    layout="responsive"
+    width="560"
+    height="315">
+  </amp-youtube>
+
+  <amp-ad width="300"
+    height="250"
+    type="a9"
+    data-aax_size="300x250"
+    data-aax_pubname="test123"
+    data-aax_src="302">
+  </amp-ad>
+
   <footer class="post-footer">
     {{ if .Params.tags }}
     <ul class="post-tags">
@@ -18,6 +45,6 @@
     </ul>
     {{ end }}
   </footer>
-  <!-- Comments system area -->
 </article>
+
 {{ partial "footer.html" . }}
