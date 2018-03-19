@@ -7,6 +7,7 @@ import hugoBin from "hugo-bin";
 import gutil from "gulp-util";
 import flatten from "gulp-flatten";
 import postcss from "gulp-postcss";
+import cssnano from "cssnano";
 import cssImport from "postcss-import";
 import cssnext from "postcss-cssnext";
 import BrowserSync from "browser-sync";
@@ -30,18 +31,18 @@ gulp.task("build-preview", ["css", "sass", "js", "fonts"], (cb) => buildSite(cb,
 // Compile CSS with PostCSS
 gulp.task("css", () => (
   gulp.src("./src/css/*.css")
-    .pipe(postcss([cssImport({from: "./src/css/main.css"}), cssnext()]))
+    .pipe(postcss([cssImport({from: "./src/css/main.css"}), cssnext(), cssnano()]))
     .pipe(gulp.dest("./dist/css"))
     .pipe(browserSync.stream())
 ));
 
 // Compile SASS
 gulp.task('sass', function() {
-  return gulp.src('./src/css/*.scss')
+  return gulp.src('./src/css/main.scss')
     .pipe(sassGlob())
     .pipe(sass({importer: packageImporter({extensions: ['.scss', '.css']})}))
-    .pipe(postcss([cssnext()]))
-    .pipe(gulp.dest("./dist/css"))
+    .pipe(postcss([cssnext(), cssnano()]))
+    .pipe(gulp.dest("./site/layouts/partials"))
     .pipe(browserSync.stream())
 });
 
@@ -69,7 +70,7 @@ gulp.task('fonts', () => (
 ));
 
 // Development server with browsersync
-gulp.task("server", ["hugo", "css", "sass", "js", "fonts"], () => {
+gulp.task("server", ["css", "sass", "js", "fonts", "hugo"], () => {
   browserSync.init({
     server: {
       baseDir: "./dist"
