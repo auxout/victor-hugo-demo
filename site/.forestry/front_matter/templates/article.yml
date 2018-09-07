@@ -1,14 +1,7 @@
 ---
-pages:
-- articles/555.md
-- articles/444.md
-- articles/wassyoi.md
-- articles/test2.md
-- articles/test.md
-- articles/my-third-content.md
-- articles/my-second-content.md
-- articles/my-first-post.md
+label: Article
 hide_body: false
+is_partial: false
 fields:
 - name: title
   label: Title
@@ -21,3 +14,12 @@ fields:
 - type: boolean
   label: Draft
   name: draft
+pages:
+- site/content/articles/555.md
+- site/content/articles/my-first-post.md
+- site/content/articles/my-second-content.md
+- site/content/articles/444.md
+- site/content/articles/wassyoi.md
+- site/content/articles/test2.md
+- site/content/articles/test.md
+- site/content/articles/my-third-content.md
